@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from './components/Card/Card.component'
 import axios from 'axios'
+import userApi from './api/user.api';
 import './App.css';
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const getAllusers = async () => {
       try {
-        const { data } = await axios.get('/api/users');
+        const { data } = await userApi.get('/users');
         setUsers(data.users);
       } catch (error) {
         console.log(error.message)
