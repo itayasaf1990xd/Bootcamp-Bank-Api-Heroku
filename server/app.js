@@ -4,10 +4,9 @@ require("dotenv").config();
 const path = require("path");
 const rootRouter = require("./routes/root.router");
 const apiRouter = require("./routes/api.router")
-// const publicPath = path.join(__dirname, "../client/build");
 const publicPath = path.join(__dirname, 'build');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 const app = express();
 app.use(cors());
