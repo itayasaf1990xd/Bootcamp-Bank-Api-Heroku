@@ -1,0 +1,36 @@
+{
+  "name": "bank-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "server": "npm run start --prefix server",
+    "server-install": "cd server && npm install",
+    "client": "npm run start --prefix client",
+    "client-install": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "development": "npm run dev",
+    "prod": "concurrently \"npm run server\" \"npm run client\"",
+    "production": "npm run prod",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-git": "git add -A && git commit -m $npm_config_comment && git push origin master && git push heroku master",
+    "copy": "cp -r client/build server/",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client && npm run copy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
