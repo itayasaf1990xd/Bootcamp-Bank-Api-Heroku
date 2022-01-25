@@ -1,4 +1,4 @@
-const { loadData, saveData, addUserToData, removeUserFromData } = require(".././utils/files.util");
+const { loadData, saveData, addUserToData, removeUserFromData } = require("../utilities/files.utility");
 const path = require("path");
 const usersJsonPath = path.join(__dirname, ".././json", "users.json");
 
