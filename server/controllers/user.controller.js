@@ -1,6 +1,7 @@
 const { loadData, saveData, addUserToData, removeUserFromData } = require("../utilities/files.utility");
 const path = require("path");
 const usersJsonPath = path.join(__dirname, ".././json", "users.json");
+const User = require("../models/user.model");
 
 /*
  * Method: Post
@@ -25,7 +26,7 @@ const addUser = async (req, res) => {
 };
 
 /*
- * Method: Post
+ * Method: Get
  * Local Url: http://localhost:8080/api/users/id
  * Web Url:
 */
@@ -40,13 +41,14 @@ const getUser = async (req, res) => {
 };
 
 /*
- * Method: Post
+ * Method: Get
  * Local Url: http://localhost:8080/api/users
  * Web Url:
 */
 const getAllUsers = async (req, res) => {
   try {
     const users = await loadData(usersJsonPath);
+    // const users = await User.find();
     res.status(200).send(users);
   } catch (error) {
     res.status(error.code).send(error.message);
